@@ -1,16 +1,18 @@
-# This is a sample Python script.
+import sys
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from utils.paper_review_utils import calculate_similarity, paper_review
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def main():
+    if len(sys.argv) != 4:
+        print("请提供正确的文件路径参数")
+        return
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    original_filename = sys.argv[1]
+    copied_filename = sys.argv[2]
+    answer_filename = sys.argv[3]
+    paper_review(original_filename, copied_filename, answer_filename)
+
+
+if __name__ == "__main__":
+    main()
